@@ -9,6 +9,7 @@
 }
 
 /* ======== stream css overrides ======== */
+
 .str-video__call-stats {
   max-width: 500px;
   position: relative;
@@ -55,6 +56,9 @@
 
 /* ==== clerk class override ===== */
 
+.cl-socialButtonsIconButton__github{
+  filter: invert(1);
+}
 .cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
