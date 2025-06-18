@@ -12,7 +12,7 @@ const Navbar = () => {
           src="/icons/Vector.svg" 
           width={32}
           height={32}
-          alt="BEYONDmeet" // beyondmeet name
+          alt="BEYONDmeet" 
           className="max-sm:size-10"
         />
         <p className="text-[26px] font-extrabold text-white max-sm:hidden">
