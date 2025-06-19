@@ -33,7 +33,6 @@ const MeetingRoom = () => {
   const [showParticipants, setShowParticipants] = useState(false);
   const { useCallCallingState } = useCallStateHooks();
 
-  // for more detail about types of CallingState see: https://getstream.io/video/docs/react/ui-cookbook/ringing-call/#incoming-call-panel
   const callingState = useCallCallingState();
 
   if (callingState !== CallingState.JOINED) return <Loader />;
@@ -63,10 +62,12 @@ const MeetingRoom = () => {
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
       </div>
+
       {/* video layout and call controls */}
       <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
         <CallControls onLeave={() => router.push(`/`)} />
 
+        {/* Layout switch button */}
         <DropdownMenu>
           <div className="flex items-center">
             <DropdownMenuTrigger className="cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]  ">
@@ -88,13 +89,29 @@ const MeetingRoom = () => {
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
+
         <CallStatsButton />
+
         <button onClick={() => setShowParticipants((prev) => !prev)}>
           <div className=" cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]  ">
             <Users size={20} className="text-white" />
           </div>
         </button>
-        {!isPersonalRoom && <EndCallButton />}
+
+        {/* ✅ ✅ MODIFICATION STARTS HERE ✅ ✅ */}
+        {!isPersonalRoom && (
+          <>
+            <EndCallButton />
+            <button
+              onClick={() => { window.location.href = 'https://3d-meeting-zt3w.vercel.app/'; }} // 🔁 Replace with actual 3D meeting link
+              className="px-4 py-2 rounded-2xl bg-purple-600 text-white transition duration-200 hover:bg-purple-700"
+
+            >
+              Switch to 3D
+            </button>
+          </>
+        )}
+        {/* ✅ ✅ MODIFICATION ENDS HERE ✅ ✅ */}
       </div>
     </section>
   );
