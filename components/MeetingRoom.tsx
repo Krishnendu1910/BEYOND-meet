@@ -98,20 +98,17 @@ const MeetingRoom = () => {
           </div>
         </button>
 
-        {/* ✅ ✅ MODIFICATION STARTS HERE ✅ ✅ */}
         {!isPersonalRoom && (
           <>
             <EndCallButton />
             <button
-              onClick={() => { window.location.href = 'https://3d-meeting-zt3w.vercel.app/'; }} // 🔁 Replace with actual 3D meeting link
+              onClick={() => { window.location.href = 'https://3-d-proj-plum.vercel.app/'; }}
               className="px-4 py-2 rounded-2xl bg-purple-600 text-white transition duration-200 hover:bg-purple-700"
-
             >
               Switch to 3D
             </button>
           </>
         )}
-        {/* ✅ ✅ MODIFICATION ENDS HERE ✅ ✅ */}
       </div>
     </section>
   );
