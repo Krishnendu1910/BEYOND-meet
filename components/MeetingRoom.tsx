@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   CallControls,
   CallParticipantsList,
@@ -32,8 +32,12 @@ const MeetingRoom = () => {
   const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
   const [showParticipants, setShowParticipants] = useState(false);
   const { useCallCallingState } = useCallStateHooks();
-
   const callingState = useCallCallingState();
+
+  const [isMounted, setISMounted] = useState(false);
+  useEffect(() => setISMounted(true), [])
+
+  if(!isMounted) return null;
 
   if (callingState !== CallingState.JOINED) return <Loader />;
 

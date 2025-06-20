@@ -20,9 +20,9 @@ const Sidebar = () => {
               href={item.route}
               key={item.label}
               className={cn(
-                'flex gap-4 items-center p-4 rounded-lg justify-start',
+                'flex gap-4 items-center p-4 rounded-lg justify-start transition-all duration-300 ease-in-out transform active:scale-95 hover:bg-white/5',
                 {
-                  'bg-blue-1': isActive,
+                  'bg-white/10 backdrop-blur-md shadow-lg ring-1 ring-white/10': isActive,
                 }
               )}
             >
@@ -31,6 +31,9 @@ const Sidebar = () => {
                 alt={item.label}
                 width={24}
                 height={24}
+                className={cn({
+                  'drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]': isActive,
+                })}
               />
               <p className="text-lg font-semibold max-lg:hidden">
                 {item.label}
